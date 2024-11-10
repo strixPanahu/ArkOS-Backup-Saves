@@ -30,8 +30,10 @@ for /r "%sourceDirectory%" %%f in (*.srm *.save) do (
     for %%G in ("!destinationPath!") do if not exist "%%~dpG" mkdir "%%~dpG"
 
     copy /y "%%f" "!destinationPath!" >nul
+    echo Copied %%f
     endlocal
 )
+echo.
 
 echo All games saves successfully copied to your Downloads folder.
 %SYSTEMROOT%\explorer.exe /e,%destinationDirectory%
