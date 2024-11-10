@@ -1,18 +1,20 @@
 @echo off
 
-echo --------------------------
-echo ArkOS Saves Script
-echo https://github.com/strixPanahu/ArkOS-Backup-Saves
-echo --------------------------
+echo ---------------------------------------------------
+echo                 ArkOS Saves Script                 
+echo  https://github.com/strixPanahu/ArkOS-Backup-Saves
+echo ---------------------------------------------------
 echo.
 
 REM Housekeeping
-set /p backupDir="Choose a backup destination, or press enter to skip:"
+set sourceDirectory=%~dp0
+setlocal
+set /p "destinationDirectory=Choose a backup destination, or press enter to skip:"
+if not defined destinationDirectory (
+    set "destinationDirectory=C:\Users\%USERNAME%\Downloads\Game Saves\"
+)
 echo.
 
-setlocal
-set sourceDirectory=%~dp0
-set "destinationDirectory=C:\Users\%USERNAME%\Downloads\Game Saves\"
 
 if not exist "%destinationDirectory%" (
     mkdir "%destinationDirectory%"
