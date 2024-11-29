@@ -20,7 +20,7 @@ if not exist "%destinationDirectory%" (
 )
 
 REM Copy each .srm (save) and .state (state) file to the destination directory
-for /r "%sourceDirectory%" %%f in (*.srm *.save) do (
+for /r "%sourceDirectory%" %%f in (*.eep *.fs *.hi *.mcd *.mpk *.nv *.sav *.srm *.st0 *.state) do (
     set "relativePath=%%f"
     setlocal enabledelayedexpansion
     set "relativePath=!relativePath:%sourceDirectory%=!"
